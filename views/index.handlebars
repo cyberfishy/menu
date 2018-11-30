@@ -1,0 +1,35 @@
+<!-- simple main section with handlebars -->
+<main>
+  <div class="container">
+    
+    <h2>Add a menu item</h2>
+
+<div class="row">
+  <div class="col s24">
+    <form action="/items" method="POST">
+      <input type="text" id="name" name="item_name" placeholder="Menu item name">
+      <input type="text" id="name" name="item_desc" placeholder="Menu item description">
+      <input type="text" id="price" name="item_price" placeholder="Menu item price">
+      <button type="submit" class="addItemButton">Add the menu item</button>
+    </form>
+  </div>
+</div>
+    
+    <div class="row">
+      <div class="col s12">
+        {{#each items}}
+            <div>
+              <form action="/items/{{this.id}}?_method=PUT" method="POST">
+                <button type="submit" class='itemAvailable'> {{this.item_name}}</button>
+              </form>
+            </div>
+          {{/unless}}
+        {{/each}}
+      </div>
+
+      
+    </div>
+  </div>
+</main>
+
+
